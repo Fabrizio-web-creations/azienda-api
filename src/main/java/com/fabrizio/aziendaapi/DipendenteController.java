@@ -1,0 +1,23 @@
+package com.fabrizio.aziendaapi;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/dipendenti")
+public class DipendenteController {
+
+    @Autowired
+    private DipendenteRepository repository;
+
+    @GetMapping
+    public List<Dipendente> getAll() {
+        return repository.findAll();
+    }
+
+    @PostMapping
+    public Dipendente create(@RequestBody Dipendente dipendente) {
+        return repository.save(dipendente);
+    }
+}
