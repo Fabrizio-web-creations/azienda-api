@@ -15,6 +15,10 @@ public class DipendenteController {
     public List<Dipendente> getAll() {
         return repository.findAll();
     }
+    @GetMapping("/ruolo/{ruolo}")
+    public List<Dipendente> getByRuolo(@PathVariable String ruolo) {
+        return repository.findByRuolo(ruolo);
+    }
 
     @PostMapping
     public Dipendente create(@RequestBody Dipendente dipendente) {
