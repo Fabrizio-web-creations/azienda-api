@@ -55,4 +55,16 @@ public class DipendenteController {
         dipendente.setStipendio(dipendente.getStipendio() + importo);
         return repository.save(dipendente);
     }
+    @GetMapping("/media-stipendio")
+    public double mediaStipendio() {
+        List<Dipendente> dipendenti = repository.findAll();
+
+        double somma = 0;
+        for (Dipendente d : dipendenti) {
+            somma = somma + d.getStipendio();
+        }
+
+        double media = somma / dipendenti.size();
+        return media;
+    }
 }

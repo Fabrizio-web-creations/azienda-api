@@ -10,6 +10,5 @@ public interface DipendenteRepository extends JpaRepository<Dipendente, Long> {
     List<Dipendente> findByStipendioGreaterThan(double stipendio);
 
     List<Dipendente> findByNome(String nome);
-
     Long countByRuolo(String numero);
 }
