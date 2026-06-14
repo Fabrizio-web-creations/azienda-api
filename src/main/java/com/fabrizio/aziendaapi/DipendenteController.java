@@ -20,4 +20,14 @@ public class DipendenteController {
     public Dipendente create(@RequestBody Dipendente dipendente) {
         return repository.save(dipendente);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
+    @PutMapping("/{id}")
+    public Dipendente update(@PathVariable Long id, @RequestBody Dipendente nuovo) {
+        nuovo.setId(id);
+        return repository.save(nuovo);
+    }
 }

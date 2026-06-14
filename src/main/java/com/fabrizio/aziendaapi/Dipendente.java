@@ -31,4 +31,8 @@ public class Dipendente {
     public void setNome(String nome) { this.nome = nome; }
     public void setRuolo(String ruolo) { this.ruolo = ruolo; }
     public void setStipendio(double stipendio) { this.stipendio = stipendio; }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
