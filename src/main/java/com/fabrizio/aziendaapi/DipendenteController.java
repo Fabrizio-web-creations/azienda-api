@@ -35,6 +35,8 @@ public class DipendenteController {
         return repository.findByStipendioGreaterThan(soglia);
     }
 
+
+
     @PostMapping
     public Dipendente create(@RequestBody Dipendente dipendente) {
         return repository.save(dipendente);
@@ -66,5 +68,18 @@ public class DipendenteController {
 
         double media = somma / dipendenti.size();
         return media;
+    }
+    @GetMapping("/top-stipendio")
+    public Dipendente topStipendio() {
+        List<Dipendente> dipendenti = repository.findAll();
+
+        Dipendente top = dipendenti.get(0);
+        for (Dipendente d : dipendenti) {
+            if (d.getStipendio() > top.getStipendio()) {
+                top = d;
+            }
+        }
+
+        return top;
     }
 }
