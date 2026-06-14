@@ -20,6 +20,11 @@ public class DipendenteController {
         return repository.findByRuolo(ruolo);
     }
 
+    @GetMapping("/nome/{nome}")
+    public List<Dipendente> getByNome(@PathVariable String nome) {
+        return repository.findByNome(nome);
+    }
+
     @GetMapping("/stipendio/{soglia}")
     public List<Dipendente> getByStipendioMaggioreDi(@PathVariable double soglia) {
         return repository.findByStipendioGreaterThan(soglia);
