@@ -34,4 +34,10 @@ public class DipendenteController {
         nuovo.setId(id);
         return repository.save(nuovo);
     }
+    @PutMapping("/{id}/aumento")
+    public Dipendente aumentaStipendio(@PathVariable Long id, @RequestParam double importo) {
+        Dipendente dipendente = repository.findById(id).get();
+        dipendente.setStipendio(dipendente.getStipendio() + importo);
+        return repository.save(dipendente);
+    }
 }
