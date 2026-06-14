@@ -20,6 +20,11 @@ public class DipendenteController {
         return repository.findByRuolo(ruolo);
     }
 
+    @GetMapping("/stipendio/{soglia}")
+    public List<Dipendente> getByStipendioMaggioreDi(@PathVariable double soglia) {
+        return repository.findByStipendioGreaterThan(soglia);
+    }
+
     @PostMapping
     public Dipendente create(@RequestBody Dipendente dipendente) {
         return repository.save(dipendente);
