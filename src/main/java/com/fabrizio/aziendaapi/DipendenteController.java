@@ -82,4 +82,11 @@ public class DipendenteController {
 
         return top;
     }
+    @GetMapping("/ordinati")
+    public List<Dipendente> dipendentiOrdinati() {
+        List<Dipendente> dipendenti = repository.findAll();
+        dipendenti.sort((a, b) -> Double.compare(b.getStipendio(), a.getStipendio()));
+        return dipendenti;
+    }
+
 }
